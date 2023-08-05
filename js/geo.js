@@ -10,7 +10,7 @@
 // })
 
 navigator.geolocation.getCurrentPosition(handleLoad);
-navigator.geolocation.watchCurrentPosition(handlePositionUpdate, handleError, options);
+navigator.geolocation.watchPosition(handlePositionUpdate, handleError);
 
   function handleLoad(geo) {
     const { latitude, longitude } = geo.coords;
@@ -28,8 +28,3 @@ navigator.geolocation.watchCurrentPosition(handlePositionUpdate, handleError, op
     console.error(error)
   }
   
-  const options = {
-    enableHighAccuracy: false,
-    timeout: 100,
-    maximumAge: 0,
-  };
