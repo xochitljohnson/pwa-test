@@ -9,15 +9,15 @@
 //     navigator.geolocation.clearWatch(watchID)
 // })
 const options = {
-  maximumAge: Infinity,
-  timeout: 500,
+  maximumAge: 10000,
+  timeout: 5000,
   enableHighAccuracy:true
 }
 
 navigator.geolocation.getCurrentPosition(handleLoad, handleError, options);
 navigator.geolocation.watchPosition(handlePositionUpdate, handleError, options);
 
-function handleLoad(geo) {
+function handleGetPosition(geo) {
   const { latitude, longitude } = geo.coords;
   console.log(`Lat: ${latitude}, Lon: ${longitude}`);
 }
@@ -27,6 +27,6 @@ function handlePositionUpdate(position) {
 }
 
 function handleError(error) {
-  console.log(`Error code ${error.code}`);
+  console.error(error);
 }
 
