@@ -14,7 +14,7 @@ const options = {
   enableHighAccuracy:true
 }
 
-navigator.geolocation.getCurrentPosition(handleLoad, handleError, options);
+navigator.geolocation.getCurrentPosition(handleGetPosition, handleError, options);
 navigator.geolocation.watchPosition(handlePositionUpdate, handleError, options);
 
 function handleGetPosition(geo) {
